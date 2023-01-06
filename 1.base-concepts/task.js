@@ -22,7 +22,6 @@ function solveEquation (a, b, c)
         let realPart = (-b / (2 * a)).toFixed(2);
         let imagPart = (Math.sqrt(-discriminant) / (2 * a)).toFixed(2);
     
-        // result
         console.log(
         `The roots of quadratic equation are ${realPart} + ${imagPart}i and ${realPart} - ${imagPart}i`
       );
