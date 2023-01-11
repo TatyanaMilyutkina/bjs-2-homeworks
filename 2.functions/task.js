@@ -1,26 +1,102 @@
 function getArrayParams(...arr) {
-  let min;
-  let max;
+  let min = Infinity;
+  let max = -Infinity;
   let sum = 0;
   let avg;
+
+  max = Math.max(...arr);
+  min = Math.min(...arr);
   for (let i = 0; i < arr.length; i++) {
-    sum += arr;
+    sum = sum + arr[i];
+    x = i + 2;
+    if (x > arr.length) {
+      avg = sum / (i + 1);
+      avg = avg.toFixed(2);
+    }
+    avg = +avg;
+  };
+
+  return { min: min, max: max, avg: avg };
+};
+
+function summElementsWorker(...arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum = sum + arr[i];
+  }
+  return sum;
+};
+
+function differenceMaxMinWorker(...arr) {
+  let min = Infinity;
+  let max = -Infinity;
+  let dif = 0;
+  if (arr.length > 0) {
+
+    max = Math.max(...arr);
+    min = Math.min(...arr);
+    dif = max - min;
+
+  } else {
+    arr = [];
+  };
+
+  return dif;
+};
+
+function differenceEvenOddWorker(...arr) {
+  let sumEvenElement = 0;
+  let sumOddElement = 0;
+  let difSum = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    let element = arr[i];
+    let isEven = (function () {
+      return (element % 2 === 0) ? true : false;
+    })();
+
+    if (isEven == true) {
+      sumEvenElement = sumEvenElement + element;
+    };
+
+    if (isEven == false) {
+      sumOddElement = sumOddElement + element;
+    }
 
   }
-  avg = sum / i;
-  return { avg: avg };
-  //return { min: min, max: max, avg: avg }; вольный стиль 8 937 064 76 44 Журавлева Анна (450*(3)*12) пн 15 часов  среда 17.15 пятница 17.15 
+  difSum = sumEvenElement - sumOddElement;
+  return difSum;
+};
+
+function averageEvenElementsWorker(...arr) {
+  let sumEvenElement = 0;
+  let countEvenElement = 0;
+  let resultEven = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    let element = arr[i];
+    let isEven = (function () {
+      return (element % 2 === 0) ? true : false;
+    })();
+
+    if (isEven == true) {
+      sumEvenElement = sumEvenElement + element;
+      countEvenElement++;
+    } if (arr.length == 0) { 0 };
+
+  }
+  if (countEvenElement == 0) {
+    0
+  } else { resultEven = sumEvenElement / countEvenElement; };
+
+
+  return resultEven;
+};
+
+function makeWork(arrOfArr, func) {
+  let maxWorkerResult = -Infinity;
+  for (let i = 0; i < arrOfArr.length; i++) {
+    func = arrOfArr[i];
+
+  }
 }
-getArrayParams(-99, 99, 10) // { min: -99, max: 99, avg: 3.33 }
-//getArrayParams(1, 2, 3, -100, 10)  // { min: -100, max: 10, avg: -16.80 }
-//getArrayParams(5)  // { min: 5, max: 5, avg: 5 }
-
-//function summElementsWorker(...arr) {}
-
-//function differenceMaxMinWorker(...arr) {}
-
-//function differenceEvenOddWorker(...arr) {}
-
-//function averageEvenElementsWorker(...arr) {}
-
-//function makeWork(arrOfArr, func) {}
