@@ -1,14 +1,3 @@
-/*class PrintEditionItem {
-    name;
-    releaseDate;
-    pagesCount;
-    state = 100;
-    type = null;
-};
-class Library { };*/
-
-//"use strict";
-
 //Задача 1
 
 class PrintEditionItem {
@@ -43,10 +32,10 @@ class PrintEditionItem {
 
 const sherlock = new PrintEditionItem("Полное собрание повестей и рассказов о Шерлоке Холмсе в одном томе", 2019, 1008);
 
-console.log(sherlock.releaseDate); //2019
-console.log(sherlock.state); //100
+console.log(sherlock.releaseDate);
+console.log(sherlock.state);
 sherlock.fix();
-console.log(sherlock.state); //100
+console.log(sherlock.state);
 
 class Magazine extends PrintEditionItem {
     constructor(name, releaseDate, pagesCount) {
@@ -86,11 +75,11 @@ class DetectiveBook extends Book {
 
 const picknick = new FantasticBook("Аркадий и Борис Стругацкие", "Пикник на обочине", 1972, 168);
 
-console.log(picknick.author); //"Аркадий и Борис Стругацкие"
+console.log(picknick.author);
 picknick.state = 10;
-console.log(picknick.state); //10
+console.log(picknick.state);
 picknick.fix();
-console.log(picknick.state); //15
+console.log(picknick.state);
 
 //Задача 2
 
@@ -133,9 +122,9 @@ library.addBook(new FantasticBook("Аркадий и Борис Стругацк
 library.addBook(new NovelBook("Герберт Уэллс", "Машина времени", 1895, 138));
 library.addBook(new Magazine("Мурзилка", 1924, 60));
 
-console.log(library.findBookBy("name", "Властелин колец")); //null
-console.log(library.findBookBy("releaseDate", 1924).name); //"Мурзилка"
+console.log(library.findBookBy("name", "Властелин колец"));
+console.log(library.findBookBy("releaseDate", 1924).name);
 
-console.log("Количество книг до выдачи: " + library.books.length); //Количество книг до выдачи: 4
+console.log("Количество книг до выдачи: " + library.books.length);
 library.giveBookByName("Машина времени");
-console.log("Количество книг после выдачи: " + library.books.length); //Количество книг после выдачи: 3
+console.log("Количество книг после выдачи: " + library.books.length); 
